@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/members")
-class MemberController @Autowired constructor(private val memberService: MemberService){
+class MemberController @Autowired constructor(private val memberService: MemberService){ //
 
     @PostMapping("/create")
     fun create(@RequestBody member: Member): Member = memberService.save(member)

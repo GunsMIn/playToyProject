@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import com.example.toyproject.dto.MemberRegisterRequest
+import com.example.toyproject.dto.MemberRegisterResponse
 
 @RestController
 @RequestMapping("/members")
-class MemberController @Autowired constructor(private val memberService: MemberService){ //
+class MemberController @Autowired constructor(private val memberService: MemberService){
 
     @PostMapping("/create")
-    fun create(@RequestBody member: Member): Member = memberService.save(member)
+    fun create(@RequestBody memberRegisterRequest: MemberRegisterRequest): MemberRegisterResponse = memberService.save(memberRegisterRequest)
 }

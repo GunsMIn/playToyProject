@@ -15,7 +15,7 @@ class Member(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
     @Column
-    val email: String = "",
+    var email: String = "",
     @Column
     var password: String,
     @Column
@@ -23,7 +23,7 @@ class Member(
     @Column
     var age: Long = 0L,
     @Column
-    var birthDate: LocalDate,
+    var birthDate: LocalDate = LocalDate.now(),
     @Column
     @Enumerated(EnumType.STRING)
     var gender: Gender = Gender.NOT_CHECK

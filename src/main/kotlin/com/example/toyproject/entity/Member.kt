@@ -1,12 +1,15 @@
 package com.example.toyproject.entity
 
+import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
 import jakarta.persistence.Enumerated
+import jakarta.persistence.FetchType
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.OneToMany
 import java.time.LocalDate
 
 @Entity
@@ -26,7 +29,9 @@ class Member(
     var birthDate: LocalDate = LocalDate.now(),
     @Column
     @Enumerated(EnumType.STRING)
-    var gender: Gender = Gender.NOT_CHECK
+    var gender: Gender = Gender.NOT_CHECK,
+    @OneToMany(mappedBy =  "member", cascade = [CascadeType.ALL],fetch = FetchType.LAZY, orphanRemoval = true)
+    val posts: MutableList<Post> = mutableListOf()
 ) {
     enum class Gender(val gender: String) {
         MAN("남자"),

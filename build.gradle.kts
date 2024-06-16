@@ -36,6 +36,8 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation("org.hibernate.validator:hibernate-validator:6.2.0.Final") // 유효성 검사 라이브러리 추가
+    implementation("javax.validation:validation-api:2.0.1.Final") // 유효성 검사 API 추가
     runtimeOnly("com.h2database:h2")
 
 }
